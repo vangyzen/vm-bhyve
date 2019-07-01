@@ -76,6 +76,11 @@ vm::run(){
     # get cpu topology
     vm::__cpu "_cpu"
 
+    # get host cpu list and bind to it
+    if config::get  "_cpu_list" "cpu_list"; then
+        cpuset -l "${_cpu_list}" -p $$
+    fi
+
     util::log_rotate "guest" "${_name}"
     util::log "guest" "${_name}" \
       "initialising" \
