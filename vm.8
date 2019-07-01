@@ -1439,6 +1439,11 @@ Allows a priority to be set for a guest by using the
 facility. The default value is 0, and has a range from -20, which is the highest
 priority, to 20. A priority of 20 will cause the guest to only run when the host
 system is idle.
+.It cpu_list
+A list of host CPUs on which the VM can run, in the format accepted by the
+.Fl l
+flag of
+.Xr cpuset 1 .
 .It limit_pcpu
 Limit the bhyve process to the specified cpu percentage.
 .Pp
