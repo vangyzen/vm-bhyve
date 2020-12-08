@@ -69,9 +69,6 @@ util::load_module(){
 #
 util::check_bhyve_support(){
 
-    # almost all our functionality requires access to things only root can do
-    [ `id -u` -ne 0 ] && util::err "virtual machines can only be managed by root"
-
     # try to load the vmm module
     # we do this here to make sure the sysctls exist, and before disable_host_checks
     # as we want this loaded anyway. FreeBSD version check removed as the
